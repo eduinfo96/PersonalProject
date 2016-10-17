@@ -8,9 +8,10 @@ angular.module( "movieMe", [ 'ui.router' ] )
           , templateUrl: "./views/login.html"
           , controller: "mainCtrl"
         })
-        .state( "Home", {
+        .state( "Heome", {
           url: "/home"
           , templateUrl: "./views/home.html"
+          , controller: 'homeCtrl'
         })
 
     })

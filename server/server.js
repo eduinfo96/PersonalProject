@@ -8,15 +8,16 @@ const port = 4001;
 const passport = require( 'passport' );
 const FacebookStrategy = require( 'passport-facebook' ).Strategy;
 const fbConfig = require( './fbConfig.js' )
-const mongoUri = "mongodb://localhost:27017/"
+const mongoUri = "mongodb://localhost:27017/MovieMeet"
 
 
 
 app.use( json() );
 app.use( cors() );
-app.use( express.static( `${ __dirname }/public`) );
+app.use( session( { secret: 'man shut up theo!!!' } ) );
 app.use( passport.initialize() );
 app.use( passport.session() );
+app.use( express.static( `${ __dirname }/../public`) );
 
 passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done) => {
   return done(null, profile);

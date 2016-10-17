@@ -1,7 +1,7 @@
 angular.module("movieMe").service("mainServ", function($http) {
     // const distUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+ user1Lat + ',' + user1Lon + '&destinations=' + user2Lat + ',' + user2Lon + '&key=' + distKey;
     // const distKey = 'AIzaSyBQG4gzjr4KzXIpJlJc6WYoMlWqG7X7J3I';
-    //const onConnBase = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=' + newDate + '&lat=' + userLat + '&lng=' + userLong + '&radius=15&units=mi&api_key='
+    // const onConnBase = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=' + newDate + '&lat=' + userLat + '&lng=' + userLong + '&radius=15&units=mi&api_key='
     // **Format New Date**
     // const onConnKey = '28vjfpqe5kzaekmb34q2d4xf';
     //
@@ -16,6 +16,8 @@ angular.module("movieMe").service("mainServ", function($http) {
     //         };
     //     })
     // }
+
+  
 
     /*
 

@@ -1,23 +1,15 @@
 $(document).ready(function() {
   $(window).scroll(function() {
-    if( $(document).scrollTop() > 100) {
-      $(".title-nav").addClass("moved-title");
-      $(".link-nav").addClass("moved-link");
-      $("nav ul li").addClass("moved-links");
-      $(".title").addClass("moved-title-2");
+    if( $(document).scrollTop() > 600) {
+      $("header").addClass("moved-header");
+      $("nav div").attr("id", "moved-links");
+      $(".title").attr('id', "moved-title");
     }
     else{
-      $(".title-nav").removeClass("moved-title");
-      $(".link-nav").removeClass("moved-link");
-      $("nav ul li").removeClass("moved-links");
-      $(".title").removeClass("moved-title-2");
+      $(".header").removeClass("moved-header");
+      $("nav div").removeAttr("id","moved-links");
+      $(".title").removeAttr('id', "moved-title");
     }
   })
-
-
-
-
-
-
 
 });
