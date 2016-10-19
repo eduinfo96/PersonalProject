@@ -1,0 +1,47 @@
+<nav-dir></nav-dir>
+<div class="settings-body">
+  <div class="pref">
+  <div class="pref-title">
+      Modify Your </br> Preferences
+  </div>
+
+  <div input-field>
+    <select name="select" ng-model="select.age_range" material-select watch >
+      <option value="" disabled selected>Choose Age Range</option>
+      <option value="18-23">18 - 23</option>
+      <option value="24-28">24 - 28</option>
+      <option value="29-33">29 - 33</option>
+      <option value="34-38">34 - 38</option>
+      <option value="39+">39+</option>
+    </select>
+
+    <select ng-model="select.gender" material-select watch >
+      <option value="" disabled selected> Choose Gender </option>
+      <option value="Male"> Male </option>
+      <option value="Female"> Female </option>
+      <option value="MF"> Both </option>
+    </select>
+
+    <select ng-model="select.time_range" material-select watch>
+      <option value="" disabled selected>Choose Time Range</option>
+      <option value="11am-3pm">11am - 3pm </option>
+      <option value="3pm-8pm">3pm - 8 pm </option>
+      <option value="8pm-12am">8pm - 12am</option>
+    </select>
+
+    <button ng-click="updatePrefs()" class="btn waves-effect waves-light" type="submit" name="action"> Save
+    <i class="material-icons right">send</i>
+  </button>
+
+
+
+  </div>
+  <label>Materialize Select</label>
+
+
+
+  </div>
+
+
+
+</div>

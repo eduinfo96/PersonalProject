@@ -12,8 +12,6 @@ module.exports = app => {
       console.log( req );
     })
 
-
-
     passport.serializeUser((user, done) => {
       done(null, user);
     });
@@ -22,8 +20,7 @@ module.exports = app => {
       done(null, obj);
     });
 
-    app.get( '/api/user', function(req, res) {
-      console.log(req.user.gender);
-    });
+  app.post( '/api/user', userCtrl.addUser);
+
 
 }

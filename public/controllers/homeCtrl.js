@@ -1,27 +1,25 @@
 angular.module( 'movieMe' )
-  .controller( 'homeCtrl', function( $scope, $http, $window, faceBookFact ) {
-//
-//
+  .controller( 'homeCtrl', function( $scope, $rootScope, mainServ ) {
 
-//
-//     $window.fbAsyncInit = function() {
-//       FB.init({
-//         appId: '{335244326867279}',
-//         status: true,
-//         cookie: true,
-//         xfbml: true,
-//       });
-//     };
-//
-    $scope.getMyLastName = function() {
-      faceBookFact.getMyLastName()
-        .then(function(response) {
-          console.log("Wtf?");
-        });
-    };
-//
-    $scope.getMyLastName();
+   function findOrAdd(){
+      mainServ.addUser().then( function( user ){
+        $rootScope.user = user;
+      })
+    }
+    findOrAdd();
 
-    $http.get( '/api/user' );
+
+    // $scope.putUser = function( _id ) {
+    //   mainServ.putUser( _id, $scope.info2Update ).then( response => {
+    //     mainServ.getUer(_id).then()
+    //     $scope.user = response.data;
+    //   } )
+    // }
+    //
+    // this.putUser = function( _id, info2Update ) {
+    //   return $http.put( '/api/user/' + _id, info2Update );
+    // }
+
+
 //
   } );

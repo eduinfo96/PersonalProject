@@ -1,9 +1,11 @@
-angular.module("movieMe").service("mainServ", function($http) {
+angular.module("movieMe").service("mainServ", function($http, ref) {
     // const distUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+ user1Lat + ',' + user1Lon + '&destinations=' + user2Lat + ',' + user2Lon + '&key=' + distKey;
     // const distKey = 'AIzaSyBQG4gzjr4KzXIpJlJc6WYoMlWqG7X7J3I';
+    const userLat = "32.776664"
+    const userLong = "-96.796988"
     // const onConnBase = 'http://data.tmsapi.com/v1.1/movies/showings?startDate=' + newDate + '&lat=' + userLat + '&lng=' + userLong + '&radius=15&units=mi&api_key='
     // **Format New Date**
-    // const onConnKey = '28vjfpqe5kzaekmb34q2d4xf';
+    const onConnKey = '28vjfpqe5kzaekmb34q2d4xf';
     //
     //
     // this.getUserLocation = function() {
@@ -17,7 +19,21 @@ angular.module("movieMe").service("mainServ", function($http) {
     //     })
     // }
 
-  
+    // $http.get(onConnBase)
+
+    this.addUser = function(){
+      return $http.post( `${ref.url}/api/user/`).then(function(user){
+        return user.data;
+      });
+    }
+
+    this.updatePrefs = function( Preferences, id ){
+       return $http.put(`${ref.url}/api/user/${id}`, Preferences)
+    }
+
+
+
+
 
     /*
 
