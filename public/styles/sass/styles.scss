@@ -11,7 +11,17 @@
 
 body {
     width: 100%;
-}
+    .modal
+     .zip-modal{
+         margin: auto;
+         text-align: center;
+         color: $blue;
+         background-color:$whiteish;
+       }
+      .modal-footer{
+        background-color: $whiteish;
+      }
+     }
 
 .moved-header {
     background-color: rgba(255, 255, 255, .0);
@@ -94,6 +104,8 @@ body {
             }
         }
     }
+
+
 }
 
 .login-body {
@@ -323,8 +335,124 @@ body {
 //theaers view
 
 .theaters-body {
-  @extend .home-body
+  width: 100%;
+  background-color: $whiteish;
+  min-height: 100vh;
+  // display: flex;
+  // flex-wrap: nowrap;
+  // flex-direction: column;
+  // .theater-sect{
+  //   width: inherit;
+  //   .theaters-list{
+  //     width: 85%;
+  //     display: flex;
+  //     justify-content: space-between;
+  //     flex-direction: row;
+  //     .theater{
+  //       height: 354.06px;
+  //       width: 265.77px;
+  //       background-color: $red;
+  //     }
+  //   }
+  // }
+  .whats-playing{
+    margin: auto;
+    padding-top: 100px;
+    font-family: $nav-font;
+    color: $black;
+    width: 35%;
+    text-align: center;
+    font-size: 42px;
+  }
+  .zip-field{
+    padding-top: 25px;
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    .zip-button {
+      background-color: $black;
+    }
+  }
+
+  .theater-sect {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    .theater {
+      margin-left: 15px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      height: 354.06px;
+      width: 265.77px;
+      color: $black;
+      background-color: $black;
+      border: 2px solid $black;
+      overflow-y: scroll;
+      transition: 0.3s ease-in;
+
+        &:hover {
+          margin-left: 15px;
+          margin-right: 15px;
+          margin-bottom: 15px;
+          height: 354.06px;
+          width: 265.77px;
+          background-color: rgba(33,118,174, 0.4);
+          border: 2px solid $black;
+          overflow-y: scroll;
+          transition: 0.4s ease-out;
+        }
+        // &:hover button{
+        //   display: block;
+        //   transition: 04s ease-out;
+        // }
+        // button {
+        //   display: none;
+        //   transition: 0.3s ease-in;
+        //   height: 10px;
+        //   font-size: 0.6em;
+        // }
+
+      #theater-name{
+        text-align: center;
+        text-decoration: underline;
+        color: $black;
+        font-size: 18px;
+        margin-bottom: 13px;
+        font-weight: bold;
+        font-family: $theater-font;
+      }
+      .movies {
+        margin-left: 10px;
+        font-family: $movie-font;
+        color: $black;
+        margin-bottom: 6px;
+        a{
+          color: $black;
+        }
+        .movie{
+          flex-wrap: wrap;
+          display: flex;
+          .showtimes{
+            margin-left: 15px;
+            color: $black;
+            font-family: $movie-font;
+            text-decoration: underline;
+            text-decoration-color: $nav-font;
+          }
+        }
+      }
+    }
+
+
+
+  }
 }
+
+
+
 // nav {
 //   ul {
 //       float: right;

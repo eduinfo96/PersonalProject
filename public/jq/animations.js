@@ -1,5 +1,7 @@
 $(document).ready(function() {
   $('select').material_select();
+  $('.modal-trigger').leanModal();
+
 
   $(window).scroll(function() {
     if( $(document).scrollTop() > 600) {

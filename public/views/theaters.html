@@ -1,6 +1,38 @@
 <main class="theaters-body">
   <nav-dir></nav-dir>
 
+  <div class="whats-playing">
+    See what's playing at a theater near you...
+
+  </div>
+
+  <div class="row zip-field">
+      <div class="input-field col s12">
+        <input ng-model="zip" id="zip" type="text" class="validate">
+        <label for="zip">Zip</label>
+      </div>
+
+      <button class="btn waves-effect waves-light zip-button" ng-click="saveZip(zip)" type="submit" name="action">Search
+      <i class="material-icons right">send</i></button>
+  </div>
+
+  <div class="theater-sect">
+
+    <div class="theater" ng-repeat="theater in theaters">
+        <div id="theater-name">{{theater.name}}</div>
+        <div class="movies" ng-repeat="movie in theater.movies">
+          {{movie.name}}           <a href="" ng-click="chooseMovie(movie.name, theater)"><i class="fa fa-film reel" aria-hidden="true"></i></a>
+          <div class="movie">
+            <div class="showtimes" ng-repeat="showtime in movie.showtimes">
+              {{showtime}}
+            </div>
+          </div>
+          <!-- <button type="button" class="button" name="button" ng-click="chooseMovie(movie.name, theater)">Select This Movie & Theater</button> -->
+        </div>
+
+    </div>
+
+  </div>
 
 
 </main>

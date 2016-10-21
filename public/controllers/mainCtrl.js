@@ -1,5 +1,4 @@
 angular.module("movieMe").controller("mainCtrl", function($scope, mainServ) {
-    // $scope.register = "Deez Noodles";
     //
     // $scope.getUserLocation = function() {
     //     mainServ.getUserLocation().then(function(result) {

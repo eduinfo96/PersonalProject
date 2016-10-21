@@ -363,6 +363,14 @@ th {
 
 body {
   width: 100%; }
+  body .modal
+  .zip-modal {
+    margin: auto;
+    text-align: center;
+    color: #2176AE;
+    background-color: #EDEDF4; }
+  body .modal-footer {
+    background-color: #EDEDF4; }
 
 .moved-header {
   background-color: rgba(255, 255, 255, 0);
@@ -450,7 +458,7 @@ body {
   font-family: Monoton;
   position: relative; }
 
-.home-body, .settings-body, .myDates-body, .theaters-body {
+.home-body, .settings-body, .myDates-body {
   width: 100%;
   min-height: 100vh;
   background-color: #EDEDF4;
@@ -461,12 +469,12 @@ body {
   background-size: cover;
   background-position: center;
   position: relative; }
-  .home-body .home-main, .settings-body .home-main, .myDates-body .home-main, .theaters-body .home-main {
+  .home-body .home-main, .settings-body .home-main, .myDates-body .home-main {
     margin: auto;
     width: 100%;
     text-align: center;
     min-height: 100vh; }
-    .home-body .home-main #popcorn-div, .settings-body .home-main #popcorn-div, .myDates-body .home-main #popcorn-div, .theaters-body .home-main #popcorn-div {
+    .home-body .home-main #popcorn-div, .settings-body .home-main #popcorn-div, .myDates-body .home-main #popcorn-div {
       background-position: center;
       margin: auto;
       background-image: url("/styles/images/popcorn.png");
@@ -479,9 +487,9 @@ body {
       -webkit-transform: rotate(180deg);
       /* Chrome, Safari, Opera */
       transform: rotate(180deg); }
-    .home-body .home-main .purpose, .settings-body .home-main .purpose, .myDates-body .home-main .purpose, .theaters-body .home-main .purpose {
+    .home-body .home-main .purpose, .settings-body .home-main .purpose, .myDates-body .home-main .purpose {
       margin-top: 75px; }
-      .home-body .home-main .purpose .moments, .settings-body .home-main .purpose .moments, .myDates-body .home-main .purpose .moments, .theaters-body .home-main .purpose .moments {
+      .home-body .home-main .purpose .moments, .settings-body .home-main .purpose .moments, .myDates-body .home-main .purpose .moments {
         font-family: "Arima Madurai";
         font-size: 42px;
         color: #FF584C;
@@ -489,22 +497,22 @@ body {
         width: 24%;
         border-top: 6px solid #33312E;
         border-bottom: 6px solid #33312E; }
-      .home-body .home-main .purpose .description, .settings-body .home-main .purpose .description, .myDates-body .home-main .purpose .description, .theaters-body .home-main .purpose .description {
+      .home-body .home-main .purpose .description, .settings-body .home-main .purpose .description, .myDates-body .home-main .purpose .description {
         font-family: "Arima Madurai";
         font-size: 30px;
         color: #33312E;
         width: 65%;
         margin: auto; }
-  .home-body #home-bottom, .settings-body #home-bottom, .myDates-body #home-bottom, .theaters-body #home-bottom {
+  .home-body #home-bottom, .settings-body #home-bottom, .myDates-body #home-bottom {
     margin: auto;
     width: 100%;
     text-align: center;
     background-color: #2176AE;
     width: 100%;
     height: 100vh; }
-    .home-body #home-bottom .how-to-sect, .settings-body #home-bottom .how-to-sect, .myDates-body #home-bottom .how-to-sect, .theaters-body #home-bottom .how-to-sect {
+    .home-body #home-bottom .how-to-sect, .settings-body #home-bottom .how-to-sect, .myDates-body #home-bottom .how-to-sect {
       padding-top: 170px; }
-      .home-body #home-bottom .how-to-sect .how-to-title, .settings-body #home-bottom .how-to-sect .how-to-title, .myDates-body #home-bottom .how-to-sect .how-to-title, .theaters-body #home-bottom .how-to-sect .how-to-title {
+      .home-body #home-bottom .how-to-sect .how-to-title, .settings-body #home-bottom .how-to-sect .how-to-title, .myDates-body #home-bottom .how-to-sect .how-to-title {
         font-size: 42px;
         color: black;
         font-family: "Arima Madurai";
@@ -512,16 +520,16 @@ body {
         border-bottom: 6px solid #EDEDF4;
         width: 30%;
         margin: auto; }
-      .home-body #home-bottom .how-to-sect .how-to-steps, .settings-body #home-bottom .how-to-sect .how-to-steps, .myDates-body #home-bottom .how-to-sect .how-to-steps, .theaters-body #home-bottom .how-to-sect .how-to-steps {
+      .home-body #home-bottom .how-to-sect .how-to-steps, .settings-body #home-bottom .how-to-sect .how-to-steps, .myDates-body #home-bottom .how-to-sect .how-to-steps {
         margin: auto;
         width: 30%; }
-        .home-body #home-bottom .how-to-sect .how-to-steps ol li, .settings-body #home-bottom .how-to-sect .how-to-steps ol li, .myDates-body #home-bottom .how-to-sect .how-to-steps ol li, .theaters-body #home-bottom .how-to-sect .how-to-steps ol li {
+        .home-body #home-bottom .how-to-sect .how-to-steps ol li, .settings-body #home-bottom .how-to-sect .how-to-steps ol li, .myDates-body #home-bottom .how-to-sect .how-to-steps ol li {
           font-size: 22px;
           margin-left: 0px;
           font-family: "Arima Madurai";
           color: black;
           text-align: left; }
-    .home-body #home-bottom #camera-div, .settings-body #home-bottom #camera-div, .myDates-body #home-bottom #camera-div, .theaters-body #home-bottom #camera-div {
+    .home-body #home-bottom #camera-div, .settings-body #home-bottom #camera-div, .myDates-body #home-bottom #camera-div {
       background-image: url("/styles/images/movie-camera-and-film-clipart-rg_1_24_camera_icon_estilizado_scalable_vector_graphics_svg-2555px.png");
       background-size: contain;
       background-repeat: no-repeat;
@@ -545,5 +553,77 @@ body {
       font-size: 36px;
       text-align: justify;
       color: #27213C; }
+
+.theaters-body {
+  width: 100%;
+  background-color: #EDEDF4;
+  min-height: 100vh; }
+  .theaters-body .whats-playing {
+    margin: auto;
+    padding-top: 100px;
+    font-family: "Arima Madurai";
+    color: #33312E;
+    width: 35%;
+    text-align: center;
+    font-size: 42px; }
+  .theaters-body .zip-field {
+    padding-top: 25px;
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column; }
+    .theaters-body .zip-field .zip-button {
+      background-color: #33312E; }
+  .theaters-body .theater-sect {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row; }
+    .theaters-body .theater-sect .theater {
+      margin-left: 15px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      height: 354.06px;
+      width: 265.77px;
+      color: #33312E;
+      background-color: #33312E;
+      border: 2px solid #33312E;
+      overflow-y: scroll;
+      transition: 0.3s ease-in; }
+      .theaters-body .theater-sect .theater:hover {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        height: 354.06px;
+        width: 265.77px;
+        background-color: rgba(33, 118, 174, 0.4);
+        border: 2px solid #33312E;
+        overflow-y: scroll;
+        transition: 0.4s ease-out; }
+      .theaters-body .theater-sect .theater #theater-name {
+        text-align: center;
+        text-decoration: underline;
+        color: #33312E;
+        font-size: 18px;
+        margin-bottom: 13px;
+        font-weight: bold;
+        font-family: "Fjalla One"; }
+      .theaters-body .theater-sect .theater .movies {
+        margin-left: 10px;
+        font-family: "Capriola";
+        color: #33312E;
+        margin-bottom: 6px; }
+        .theaters-body .theater-sect .theater .movies a {
+          color: #33312E; }
+        .theaters-body .theater-sect .theater .movies .movie {
+          flex-wrap: wrap;
+          display: flex; }
+          .theaters-body .theater-sect .theater .movies .movie .showtimes {
+            margin-left: 15px;
+            color: #33312E;
+            font-family: "Capriola";
+            text-decoration: underline;
+            text-decoration-color: "Arima Madurai"; }
 
 /*# sourceMappingURL=mainStyles.css.map */

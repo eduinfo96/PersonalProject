@@ -26,7 +26,7 @@ angular.module( "movieMe", [ 'ui.router', 'ui.materialize' ] )
         .state( "Theaters", {
           url: "/theaters"
           , templateUrl: "./views/theaters.html"
-          // , controller: "theatersCtrl"
+          , controller: "theatersCtrl"
         })
 
     })

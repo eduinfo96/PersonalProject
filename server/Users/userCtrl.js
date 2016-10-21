@@ -12,6 +12,7 @@ module.exports = {
       }
     })
   }
+  
   , getUsers: function( req, res ){
     User.find( {}, function( err, users ){
       if( err ){
@@ -22,6 +23,7 @@ module.exports = {
       }
     })
   }
+
   , addUser: function( req, res ){
     const user = {
       fb_id: req.user.id
@@ -30,17 +32,16 @@ module.exports = {
       , gender: req.user.gender
       , photo: req.user.photos.value
     };
+
+
     User.findOne( { fb_id: req.user.id }, function( err, existingUser ) {
-      console.log("this is the exsisting user",existingUser);
       if( err ) {
         return res.status( 500 ).json( err );
       } else {
         if( existingUser ) {
-          console.log("user was found!, I should now send back the user to the front end")
-          return res.status( 200 ).json( existingUser );
+          return res.status( 500 ).json( "User Exists Already");
         } else {
           User.create( user, function( error, newUser ) {
-            console.log("user was not found, will now create user.");
             if( error ) {
               return res.status( 500 ).json( error );
             } else {
@@ -51,6 +52,7 @@ module.exports = {
       }
     })
   }
+
   , updatePrefs: function( req, res ){
     if( !req.params.id ){
       return res.status( 400 ).send( "Invalid User" )
@@ -62,11 +64,47 @@ module.exports = {
       else {
         return res.json( response )
       }
-
     })
+    }
 
+    , updateMovie: function( req, res ){
+      if( !req.params.id ){
+        return res.status( 400 ).send( "Invalid User" )
+      };
+      User.findByIdAndUpdate( req.params.id, { $set:  { movie: req.body } }, { new: true, upsert: true }, ( err, response ) => {
+        if( err ){
+          return res.send( err )
+        }
+        else {
+          return res.json( response )
+        }
 
-  }
+      })
+      }
+
+      // Present-Only
+    , findMatch: function( req, res ){
+      User.find( {}, { movie: true }, function( err, users ){
+        if ( err ){
+          return res.send( err )
+        }
+        else {
+          return res.json( users )
+        }
+      })
+    }
+
+    , deleteUser: function( req, res ){
+      User.findByIdAndRemove( req.params.id , req.body, ( err, response ) => {
+        if( !req.params.id ){
+          return res.status( "500" ).json( "Invalid I.D." );
+        }
+        else {
+          return res.json( response );
+        }
+      })
+    }
+
 
 
 
