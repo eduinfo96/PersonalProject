@@ -1,9 +1,15 @@
-<main class="myDates-body">
-<nav-dir></nav-dir>
+<main class="my-dates-body">
+    <nav-dir></nav-dir>
 
-<section class="user-list">
-  <div class="user">
-  </div>
-</section>
+        <section class="user-list" ng-repeat="user in newUsers">
+            <div class="user" ng-show="user.movie"> {{ user.first_name }}   <a href="" ng-click="matchUser(user)">   <i class="fa fa-user-plus add-user" aria-hidden="true"></i></a>
+             </br> {{user.movie.title}}
+             </br> {{user.movie.theater.name}}
+           </br> {{user.movie.theater.address}}
+
+
+            </div>
+
+        </section>
 
 </main>

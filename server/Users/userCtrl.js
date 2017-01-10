@@ -12,7 +12,7 @@ module.exports = {
       }
     })
   }
-  
+
   , getUsers: function( req, res ){
     User.find( {}, function( err, users ){
       if( err ){
@@ -32,19 +32,19 @@ module.exports = {
       , gender: req.user.gender
       , photo: req.user.photos.value
     };
-
-
     User.findOne( { fb_id: req.user.id }, function( err, existingUser ) {
       if( err ) {
+        console.log( "req.user.id")
         return res.status( 500 ).json( err );
       } else {
         if( existingUser ) {
-          return res.status( 500 ).json( "User Exists Already");
+          return res.status(200 ).json(existingUser);
         } else {
           User.create( user, function( error, newUser ) {
             if( error ) {
               return res.status( 500 ).json( error );
             } else {
+
               return res.status( 200 ).json( newUser );
             }
           } );
@@ -84,7 +84,7 @@ module.exports = {
 
       // Present-Only
     , findMatch: function( req, res ){
-      User.find( {}, { movie: true }, function( err, users ){
+      User.find( {},{movie: true}, function( err, users ){
         if ( err ){
           return res.send( err )
         }

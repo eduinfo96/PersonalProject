@@ -14,7 +14,7 @@ const mongoUri = "mongodb://localhost:27017/MovieMeet"
 
 app.use( json() );
 app.use( cors() );
-app.use( session( { secret: 'man shut up theo!!!' } ) );
+app.use( session( { secret: 'pickles' } ) );
 app.use( passport.initialize() );
 app.use( passport.session() );
 app.use( express.static( `${ __dirname }/../public`) );

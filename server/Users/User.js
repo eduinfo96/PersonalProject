@@ -1,7 +1,7 @@
 const mongoose = require( 'mongoose' );
 
 const User = new mongoose.Schema( {
-  fb_id: { type: Number, unqiue: true, required: true }
+  fb_id: { type: Number, unique: true, required: true }
   , first_name: { type: String, required: true }
   , gender: { type: String, required: true }
   , age_range: { type: Object, required: true }

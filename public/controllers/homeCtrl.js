@@ -2,11 +2,23 @@ angular.module( 'movieMe' )
   .controller( 'homeCtrl', function( $scope, $rootScope, mainServ ) {
 
    function findOrAdd(){
+     console.log( $rootScope.user)
       mainServ.addUser().then( function( user ){
         $rootScope.user = user;
+        console.log($rootScope.user)
       })
     }
     findOrAdd();
+
+
+    $scope.saveZip = function(zip){
+      mainServ.getMoviesByZip(zip)
+          .then( function( movies ){
+        console.log( movies )
+        $scope.movies = movies;
+      })
+    }
+
 
 
     // $scope.putUser = function( _id ) {
