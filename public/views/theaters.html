@@ -18,13 +18,13 @@
 
   <div class="theater-sect">
 
-    <div class="theater" ng-repeat="theater in theaters">
-        <div id="theater-name">{{theater.name}}</div>
-        <div class="movies" ng-repeat="movie in theater.movies">
-          {{movie.name}}           <a href="" ng-click="chooseMovie(movie.name, theater)"><i class="fa fa-film reel" aria-hidden="true"></i></a>
+    <div class="theater" ng-repeat="movie in movies">
+        <div id="theater-name">{{movie.title}}</div>
+        <div class="movies" ng-repeat="theater in movie.showtimes">
+          {{theater.theatre.name}}           <a href="" ng-click="chooseMovie(movie.name, theater)"><i class="fa fa-film reel" aria-hidden="true"></i></a>
           <div class="movie">
-            <div class="showtimes" ng-repeat="showtime in movie.showtimes">
-              {{showtime}}
+            <div class="showtimes" ng-repeat="showtime in theater.dateTime">
+              {{showtime | date: 'shortTime'}}
             </div>
           </div>
           <!-- <button type="button" class="button" name="button" ng-click="chooseMovie(movie.name, theater)">Select This Movie & Theater</button> -->
