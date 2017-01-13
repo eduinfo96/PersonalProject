@@ -30,14 +30,14 @@ module.exports = {
       , age_range: req.user._json.age_range
       , first_name: req.user.name.givenName
       , gender: req.user.gender
-      , photo: req.user.photos.value
+      , photo: req.user._json.picture.data.url
     };
     User.findOne( { fb_id: req.user.id }, function( err, existingUser ) {
       if( err ) {
-        console.log( "req.user.id")
         return res.status( 500 ).json( err );
       } else {
-        if( existingUser ) {
+          if( existingUser ) {
+          existingUser.photo = req.user._json.picture.data.url
           return res.status(200 ).json(existingUser);
         } else {
           User.create( user, function( error, newUser ) {

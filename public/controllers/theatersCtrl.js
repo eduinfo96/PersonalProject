@@ -1,20 +1,14 @@
 angular.module('movieMe').controller("theatersCtrl", function(mainServ, $scope, $rootScope) {
-
-    //   $scope.searchZip = Number;
-    //
-    //   $scope.getTheatersByZip = function( $rootScope.Zip ){
-    //      mainServ.getTheatersByZip($rootScope.Zip).then( function(response) {
-    //     $scope.results = response
-    //   })
-    // }
     console.log($rootScope.user)
 
 
     $scope.saveZip = function(zip) {
+        $rootScope.isLoading = true;
         mainServ.getMoviesByZip(zip)
             .then(function( movies ) {
                 console.log( movies )
                 $scope.movies = movies;
+                $rootScope.isLoading = false;
             })
     }
 
