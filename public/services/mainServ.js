@@ -6,6 +6,9 @@ angular.module("movieMe").service("mainServ", function($http, ref) {
     const onConnBase = 'http://data.tmsapi.com/v1.1/movies/showings?startDate='
     //  const onConnBase2 = "http://data.tmsapi.com/v1.1/movies/showings?startDate=2016-10-20&zip=75201&radius=15&units=mi&api_key="
     const onConnKey = 'rnwu9qff92c73cgqmb6njsmv';
+    const movieDBKey = "b69217f2093417f5a3fa7f766e391c60"
+    const imageReq = "https://api.themoviedb.org/3/search/movie?api_key="
+    const imageBaseUrl = "https://image.tmdb.org/t/p/original"
 
 
     //users
@@ -51,7 +54,8 @@ angular.module("movieMe").service("mainServ", function($http, ref) {
         let currentDate = `${ year }-${ month }-${ day }`;
 
         return $http.get(`${ onConnBase }${ currentDate }&zip=${ zipCode }&radius=15&units=mi&imageSize=Lg&api_key=${ onConnKey }`)
-            .then(response => {
+            .then( response => {
+                response.data = response.data.slice(0, 40);
                 response.data.forEach( movie => {
                     movie.showtimes.forEach(( showtime, index, orig ) => {
                         let newTimes = [];
@@ -77,7 +81,37 @@ angular.module("movieMe").service("mainServ", function($http, ref) {
                 })
 
             })
-    }
+            .then( movies => {
+                var setImageUrl = ( i ) => {
+
+                  var search = movies[i].title.split(" ").splice(0, 3).join(" ");
+
+                    return $http.get( imageReq + movieDBKey + "&query=" + search ).then( response => {
+                      movies[i].imageUrl =
+
+                      response.data.results[0]
+
+                      ?
+
+                      imageBaseUrl + response.data.results[0].poster_path
+
+                      :
+
+                      "http://www.makeupstudio.lu/html/images/poster/no_poster_available.jpg"
+                    })
+               }
+
+                for( var i = 0; i < movies.length; i++ ){
+                    setImageUrl( i )
+                }
+
+                return movies;
+
+              })
+
+            }
+
+
 
 
 

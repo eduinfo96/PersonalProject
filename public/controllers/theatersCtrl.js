@@ -7,9 +7,10 @@ angular.module('movieMe').controller("theatersCtrl", function(mainServ, $scope, 
         mainServ.getMoviesByZip(zip)
             .then(function( movies ) {
                 console.log( movies )
-                $scope.movies = movies;
+                $scope.tempMovies = movies;
                 $rootScope.isLoading = false;
             })
+
     }
 
     $scope.chooseMovie = function(movieTitle, theaterName) {
