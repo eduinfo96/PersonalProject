@@ -385,7 +385,7 @@ body {
       margin-right: 15px;
       margin-bottom: 15px;
       height: 354.06px;
-      width: 265.77px;
+      width: 250.77px;
       color: $black;
       background-color: $black;
       border: 2px solid $black;
@@ -397,23 +397,17 @@ body {
           margin-right: 15px;
           margin-bottom: 15px;
           height: 354.06px;
-          width: 265.77px;
+          width: 250.77px;
           background-color: rgba(33,118,174, 0.4);
           border: 2px solid $black;
           overflow-y: scroll;
           transition: 0.4s ease-out;
         }
-        // &:hover button{
-        //   display: block;
-        //   transition: 04s ease-out;
-        // }
-        // button {
-        //   display: none;
-        //   transition: 0.3s ease-in;
-        //   height: 10px;
-        //   font-size: 0.6em;
-        // }
-
+        .poster{
+          height: 354.06px;
+          width: 265.77px;
+          background-repeat: no-repeat;
+          background-size: 247.77px 354.06px;
       #theater-name{
         text-align: center;
         text-decoration: underline;
@@ -443,6 +437,7 @@ body {
           }
         }
       }
+     }
     }
 
 
@@ -489,8 +484,7 @@ body {
     position: fixed;
     display: flex;
     align-items: center;
-    background-color: rgba(33,118,174,0.99);
-      }
+    background-color: rgba(0, 0, 0, 0.93);  }
 
   @-webkit-keyframes uil-ring-anim {
     0% {
@@ -635,7 +629,7 @@ body {
     top: 20px;
     left: 20px;
     border-radius: 80px;
-    box-shadow: 0 6px 0 0 #FF584C;
+    box-shadow: 0 6px 0 0 #59ebff;
     -ms-animation: uil-ring-anim 1s linear infinite;
     -moz-animation: uil-ring-anim 1s linear infinite;
     -webkit-animation: uil-ring-anim 1s linear infinite;

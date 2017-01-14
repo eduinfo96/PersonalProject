@@ -12,11 +12,11 @@ angular.module( 'movieMe' )
 
 
     $scope.saveZip = function(zip){
-      // $rootScope.isLoading = true;
+      $rootScope.isLoading = true;
       mainServ.getMoviesByZip(zip)
           .then( function( movies ){
         $scope.movies = movies;
-        // $rootScope.isLoading = false;
+        $rootScope.isLoading = false;
       })
     }
 
