@@ -16,4 +16,10 @@ $(document).ready(function() {
     }
   })
 
+  // $( "div.poster" ).hover( function(){
+  //   $( this ).addClass( ".movie-data" );
+  // }, function(){
+  //   $( this ).removeClass( ".movie-data" );
+  // })
+
 });

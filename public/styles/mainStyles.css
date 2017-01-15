@@ -587,27 +587,15 @@ body {
       margin-right: 15px;
       margin-bottom: 15px;
       height: 354.06px;
-      width: 250.77px;
+      width: 247.77px;
       color: #33312E;
-      background-color: #33312E;
-      border: 2px solid #33312E;
-      overflow-y: scroll;
-      transition: 0.3s ease-in; }
-      .theaters-body .theater-sect .theater:hover {
-        margin-left: 15px;
-        margin-right: 15px;
-        margin-bottom: 15px;
-        height: 354.06px;
-        width: 250.77px;
-        background-color: rgba(33, 118, 174, 0.4);
-        border: 2px solid #33312E;
-        overflow-y: scroll;
-        transition: 0.4s ease-out; }
+      background-color: #33312E; }
       .theaters-body .theater-sect .theater .poster {
         height: 354.06px;
-        width: 265.77px;
+        width: 247.77px;
         background-repeat: no-repeat;
-        background-size: 247.77px 354.06px; }
+        background-size: 247.77px 354.06px;
+        overflow-y: scroll; }
         .theaters-body .theater-sect .theater .poster #theater-name {
           text-align: center;
           text-decoration: underline;
@@ -632,6 +620,11 @@ body {
               font-family: "Capriola";
               text-decoration: underline;
               text-decoration-color: "Arima Madurai"; }
+    .theaters-body .theater-sect .movie-data {
+      z-index: 40;
+      background-color: #EDEDF4;
+      height: 354.06px;
+      width: 247.77px; }
 
 .my-dates-body {
   width: 100%;
@@ -665,7 +658,8 @@ body {
   position: fixed;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.93); }
+  background-color: rgba(237, 237, 244, 0.98);
+  transition: 1.0s ease-out; }
 
 @-webkit-keyframes uil-ring-anim {
   0% {
@@ -786,7 +780,7 @@ body {
   top: 20px;
   left: 20px;
   border-radius: 80px;
-  box-shadow: 0 6px 0 0 #59ebff;
+  box-shadow: 0 6px 0 0 #2176AE;
   -ms-animation: uil-ring-anim 1s linear infinite;
   -moz-animation: uil-ring-anim 1s linear infinite;
   -webkit-animation: uil-ring-anim 1s linear infinite;

@@ -97,7 +97,7 @@ angular.module("movieMe").service("mainServ", function($http, ref) {
 
                       :
 
-                      "http://www.makeupstudio.lu/html/images/poster/no_poster_available.jpg"
+                      "../styles/images/The_Title.jpg"
                     })
                }
 
