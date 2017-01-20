@@ -1,4 +1,4 @@
-angular.module( "movieMe", [ 'ui.router', 'ui.materialize' ] )
+angular.module( "movieMe", [ 'ui.router', 'ui.materialize', 'ngAnimate' ] )
 
     .config( function( $stateProvider, $urlRouterProvider ){
       $urlRouterProvider.otherwise('/')

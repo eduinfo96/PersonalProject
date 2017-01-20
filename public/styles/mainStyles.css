@@ -595,36 +595,38 @@ body {
         width: 247.77px;
         background-repeat: no-repeat;
         background-size: 247.77px 354.06px;
+        transition: 0.4s ease-out;
         overflow-y: scroll; }
-        .theaters-body .theater-sect .theater .poster #theater-name {
-          text-align: center;
-          text-decoration: underline;
-          color: #33312E;
-          font-size: 18px;
-          margin-bottom: 13px;
-          font-weight: bold;
-          font-family: "Fjalla One"; }
-        .theaters-body .theater-sect .theater .poster .movies {
-          margin-left: 10px;
-          font-family: "Capriola";
-          color: #33312E;
-          margin-bottom: 6px; }
-          .theaters-body .theater-sect .theater .poster .movies a {
-            color: #33312E; }
-          .theaters-body .theater-sect .theater .poster .movies .movie {
-            flex-wrap: wrap;
-            display: flex; }
-            .theaters-body .theater-sect .theater .poster .movies .movie .showtimes {
-              margin-left: 15px;
-              color: #33312E;
-              font-family: "Capriola";
-              text-decoration: underline;
-              text-decoration-color: "Arima Madurai"; }
-    .theaters-body .theater-sect .movie-data {
-      z-index: 40;
-      background-color: #EDEDF4;
-      height: 354.06px;
-      width: 247.77px; }
+        .theaters-body .theater-sect .theater .poster .movie-data {
+          background-color: #EDEDF4;
+          min-height: 354.06px;
+          overflow-y: scroll;
+          width: 247.77px;
+          transition: 0.4s ease-out; }
+          .theaters-body .theater-sect .theater .poster .movie-data #theater-name {
+            text-align: center;
+            text-decoration: underline;
+            color: #33312E;
+            font-size: 18px;
+            margin-bottom: 13px;
+            font-weight: bold;
+            font-family: "Fjalla One"; }
+          .theaters-body .theater-sect .theater .poster .movie-data .movies {
+            margin-left: 10px;
+            font-family: "Capriola";
+            color: #33312E;
+            margin-bottom: 6px; }
+            .theaters-body .theater-sect .theater .poster .movie-data .movies a {
+              color: #33312E; }
+            .theaters-body .theater-sect .theater .poster .movie-data .movies .movie {
+              flex-wrap: wrap;
+              display: flex; }
+              .theaters-body .theater-sect .theater .poster .movie-data .movies .movie .showtimes {
+                margin-left: 15px;
+                color: #33312E;
+                font-family: "Capriola";
+                text-decoration: underline;
+                text-decoration-color: "Arima Madurai"; }
 
 .my-dates-body {
   width: 100%;

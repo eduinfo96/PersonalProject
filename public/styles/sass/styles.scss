@@ -393,16 +393,23 @@ body {
           width: 247.77px;
           background-repeat: no-repeat;
           background-size: 247.77px 354.06px;
+          transition: 0.4s ease-out;
           overflow-y: scroll;
-      #theater-name{
-        text-align: center;
-        text-decoration: underline;
-        color: $black;
-        font-size: 18px;
-        margin-bottom: 13px;
-        font-weight: bold;
-        font-family: $theater-font;
-      }
+          .movie-data{
+            background-color: $whiteish;
+            min-height: 354.06px;
+            overflow-y: scroll;
+            width: 247.77px;
+            transition: 0.4s ease-out;
+            #theater-name{
+              text-align: center;
+              text-decoration: underline;
+              color: $black;
+              font-size: 18px;
+              margin-bottom: 13px;
+              font-weight: bold;
+              font-family: $theater-font;
+            }
       .movies {
         margin-left: 10px;
         font-family: $movie-font;
@@ -422,14 +429,9 @@ body {
             text-decoration-color: $nav-font;
           }
         }
+       }
       }
      }
-    }
-    .movie-data{
-      z-index: 40;
-      background-color: $whiteish;
-      height: 354.06px;
-      width: 247.77px;
     }
 
 
