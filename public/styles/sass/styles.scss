@@ -393,28 +393,37 @@ body {
           width: 247.77px;
           background-repeat: no-repeat;
           background-size: 247.77px 354.06px;
-          transition: 0.4s ease-out;
           overflow-y: scroll;
+          border: 1px solid $black;
           .movie-data{
-            background-color: $whiteish;
+            background-color: rgba(237,237,244, .8);
             min-height: 354.06px;
             overflow-y: scroll;
             width: 247.77px;
-            transition: 0.4s ease-out;
+            transition: .4s ease-in;
+            &.fade.ng-hide{
+              transition: .4s ease-out;
+              &.ng-hide-add, &.ng-hide-remove{
+                opacity: 0;
+              }
+            }
             #theater-name{
               text-align: center;
               text-decoration: underline;
-              color: $black;
+              color: $blue;
               font-size: 18px;
               margin-bottom: 13px;
               font-weight: bold;
               font-family: $theater-font;
             }
       .movies {
-        margin-left: 10px;
+        margin: 10px;
         font-family: $movie-font;
         color: $black;
         margin-bottom: 6px;
+        margin: 10px;
+        padding-bottom: 5px;
+        font-size: 14px;
         a{
           color: $black;
         }
@@ -423,7 +432,7 @@ body {
           display: flex;
           .showtimes{
             margin-left: 15px;
-            color: $black;
+            color: $orange;
             font-family: $movie-font;
             text-decoration: underline;
             text-decoration-color: $nav-font;

@@ -595,27 +595,34 @@ body {
         width: 247.77px;
         background-repeat: no-repeat;
         background-size: 247.77px 354.06px;
-        transition: 0.4s ease-out;
-        overflow-y: scroll; }
+        overflow-y: scroll;
+        border: 1px solid #33312E; }
         .theaters-body .theater-sect .theater .poster .movie-data {
-          background-color: #EDEDF4;
+          background-color: rgba(237, 237, 244, 0.8);
           min-height: 354.06px;
           overflow-y: scroll;
           width: 247.77px;
-          transition: 0.4s ease-out; }
+          transition: .4s ease-in; }
+          .theaters-body .theater-sect .theater .poster .movie-data.fade.ng-hide {
+            transition: .4s ease-out; }
+            .theaters-body .theater-sect .theater .poster .movie-data.fade.ng-hide.ng-hide-add, .theaters-body .theater-sect .theater .poster .movie-data.fade.ng-hide.ng-hide-remove {
+              opacity: 0; }
           .theaters-body .theater-sect .theater .poster .movie-data #theater-name {
             text-align: center;
             text-decoration: underline;
-            color: #33312E;
+            color: #2176AE;
             font-size: 18px;
             margin-bottom: 13px;
             font-weight: bold;
             font-family: "Fjalla One"; }
           .theaters-body .theater-sect .theater .poster .movie-data .movies {
-            margin-left: 10px;
+            margin: 10px;
             font-family: "Capriola";
             color: #33312E;
-            margin-bottom: 6px; }
+            margin-bottom: 6px;
+            margin: 10px;
+            padding-bottom: 5px;
+            font-size: 14px; }
             .theaters-body .theater-sect .theater .poster .movie-data .movies a {
               color: #33312E; }
             .theaters-body .theater-sect .theater .poster .movie-data .movies .movie {
@@ -623,7 +630,7 @@ body {
               display: flex; }
               .theaters-body .theater-sect .theater .poster .movie-data .movies .movie .showtimes {
                 margin-left: 15px;
-                color: #33312E;
+                color: #FF584C;
                 font-family: "Capriola";
                 text-decoration: underline;
                 text-decoration-color: "Arima Madurai"; }

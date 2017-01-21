@@ -1,7 +1,8 @@
-angular.module( "movieMe", [ 'ui.router', 'ui.materialize', 'ngAnimate' ] )
+angular.module( "movieMe", [ 'ui.router', 'ui.materialize', 'ngAnimate'] )
 
-    .config( function( $stateProvider, $urlRouterProvider ){
-      $urlRouterProvider.otherwise('/')
+    .config( function( $stateProvider, $urlRouterProvider, $locationProvider ){
+      $urlRouterProvider.otherwise('/');
+      $locationProvider.hashPrefix("");
       $stateProvider
         .state( "Login", {
           url: "/"

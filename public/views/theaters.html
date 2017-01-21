@@ -29,12 +29,12 @@
              ng-mouseenter="hover = true"
              ng-mouseleave="hover = false"
              ng-style="{'background-image': 'url(' + movie.imageUrl + ')'}">
-          <div class="movie-data"
+          <div class="movie-data fade"
                ng-show="hover">
             <div id="theater-name">{{movie.title}}
             </div>
             <div class="movies" ng-repeat="theater in movie.showtimes">
-             <a href="" ng-click="chooseMovie(movie.name, theater)"><i class="fa fa-film reel" aria-hidden="true"></i></a>   {{theater.theatre.name}}           
+             <a href="" ng-click="chooseMovie(movie.name, theater)"><i class="fa fa-film reel" aria-hidden="true"></i></a>   {{theater.theatre.name}}
               <div class="movie">
                 <div class="showtimes" ng-repeat="showtime in theater.dateTime">
                   {{showtime | date: 'shortTime'}}
