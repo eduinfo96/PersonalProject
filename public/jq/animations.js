@@ -4,14 +4,14 @@ $(document).ready(function() {
 
 
   $(window).scroll(function() {
-    if( $(document).scrollTop() > 600) {
+    if( $(document).scrollTop() > 620) {
       $("header").addClass("moved-header");
-      $(".navi div").attr("id", "moved-links");
+      $(".navi div a").attr("id", "moved-links");
       $(".title").attr('id', "moved-title");
     }
     else{
       $(".header").removeClass("moved-header");
-      $(".navi div").removeAttr("id","moved-links");
+      $(".navi div a").removeAttr("id","moved-links");
       $(".title").removeAttr('id', "moved-title");
     }
   })

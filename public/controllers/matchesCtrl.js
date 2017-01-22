@@ -12,7 +12,7 @@ angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainSer
           console.log($scope.newUsers)
         })
     }
-    $scope.findMovies()
+    // $scope.findMovies()
 
     $scope.matchUser = function(){
       mainServ.matchUser( user, $rootScope.user._id ).then()
