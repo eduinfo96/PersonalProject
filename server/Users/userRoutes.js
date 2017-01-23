@@ -25,7 +25,7 @@ module.exports = app => {
   app.put( '/api/deleteuser/:id', userCtrl.deleteUser );
   app.post( '/api/user', userCtrl.addUser );
   app.put( '/api/user/:id', userCtrl.updatePrefs );
-  app.put('/api/movie/:id', userCtrl.updateMovie);
+  app.put('/api/movie/:id', userCtrl.updateMovieAndZip );
 
 
 

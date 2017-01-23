@@ -3,13 +3,14 @@ angular.module('movieMe').controller("theatersCtrl", function(mainServ, $scope, 
 
 
     $scope.saveZip = function( zip ) {
+
       let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test( zip );
 
       if( !isValidZip ){
-        return alert( "Please Enter A Valid Zip.");
+        return alert( "Please Enter A Valid Zip");
       }
-        $rootScope.isLoading = true;
-        mainServ.getMoviesByZip(zip)
+       $rootScope.isLoading = true;
+        mainServ.getMoviesByZip( zip )
             .then(function( movies ) {
                 console.log( movies )
                 $scope.movies = movies;
@@ -18,13 +19,15 @@ angular.module('movieMe').controller("theatersCtrl", function(mainServ, $scope, 
 
     }
 
-    $scope.chooseMovie = function(movieTitle, theaterName) {
-        const movie = {
-            title: movieTitle,
-            theater: theaterName
+    $scope.updateMovieAndZip = function( movieTitle, theaterName) {
+        const data = {
+            movie: {
+              title: movieTitle
+              , theater: theaterName
+            }
+            , tempZip: $rootScope.tempZip
         }
-        mainServ.updateMovie(movie, $rootScope.user._id)
-            .then()
+        mainServ.updateMovieAndZip( data, $rootScope.user._id)
     }
 
 
