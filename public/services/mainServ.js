@@ -20,7 +20,6 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
 
     this.addUser = function() {
         return $http.post(`${ref.url}/api/user`).then(function(user) {
-            console.log("user", user)
             return user.data;
         });
     }

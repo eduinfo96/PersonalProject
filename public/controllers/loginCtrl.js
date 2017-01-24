@@ -1,5 +1,12 @@
-angular.module("movieMe").controller("mainCtrl", function($scope, mainServ) {
-    //
+angular.module("movieMe").controller("loginCtrl", function($scope, $rootScope, mainServ) {
+   $scope.findOrAdd = function(){
+     
+     mainServ.addUser().then( function( user ){
+       $rootScope.user = user;
+       console.log( "hi" )
+     })
+   }
+
     // $scope.getUserLocation = function() {
     //     mainServ.getUserLocation().then(function(result) {
     //         $scope.userLocation = result;

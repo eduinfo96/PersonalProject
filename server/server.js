@@ -11,7 +11,6 @@ const fbConfig = require( './fbConfig.js' )
 const mongoUri = "mongodb://localhost:27017/MovieMeet"
 
 
-
 app.use( json() );
 app.use( cors() );
 app.use( session( { secret: 'pickles' } ) );
@@ -22,6 +21,14 @@ app.use( express.static( `${ __dirname }/../public`) );
 passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done) => {
   return done(null, profile);
 }))
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
 
 require( "./masterRoutes" )(app);
 

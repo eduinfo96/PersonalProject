@@ -4,7 +4,7 @@ angular.module( 'movieMe' )
    function findOrAdd(){
       mainServ.addUser().then( function( user ){
         $rootScope.user = user;
-        console.log($rootScope.user)
+        console.log( $rootScope.user )
       })
     }
     findOrAdd();

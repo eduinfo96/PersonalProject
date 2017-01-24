@@ -1,5 +1,5 @@
 angular.module('movieMe').controller("theatersCtrl", function(mainServ, $scope, $rootScope) {
-    console.log($rootScope.user)
+    console.log($scope.user)
 
 
     $scope.saveZip = function( zip ) {

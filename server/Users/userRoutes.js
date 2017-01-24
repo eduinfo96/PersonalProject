@@ -8,17 +8,6 @@ module.exports = app => {
       successRedirect: "/#/home"
       , failureRedirect: "/"
     } ) );
-
-
-
-    passport.serializeUser((user, done) => {
-      done(null, user);
-    });
-
-    passport.deserializeUser((obj, done) => {
-      done(null, obj);
-    });
-
   app.get( '/api/user/:id', userCtrl.getUserById );
   app.get( '/api/user', userCtrl.getUsers );
   app.get( '/api/matches', userCtrl.findMatch );

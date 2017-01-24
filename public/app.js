@@ -7,7 +7,7 @@ angular.module( "movieMe", [ 'ui.router', 'ui.materialize', 'ngAnimate'] )
         .state( "Login", {
           url: "/"
           , templateUrl: "./views/login.html"
-          , controller: "mainCtrl"
+          , controller: "loginCtrl"
         })
         .state( "Home", {
           url: "/home"

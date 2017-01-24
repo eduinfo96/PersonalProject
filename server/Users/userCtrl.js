@@ -1,4 +1,6 @@
 const User = require( './User.js' ) ;
+const findOrCreate = require( 'mongoose-findorcreate' );
+
 
 module.exports = {
 
@@ -33,10 +35,12 @@ module.exports = {
       , photo: req.user._json.picture.data.url
     };
     User.findOne( { fb_id: req.user.id }, function( err, existingUser ) {
+      // console.log( req.user.id )
       if( err ) {
         return res.status( 500 ).json( err );
       } else {
           if( existingUser ) {
+          // console.log( exisitingUser )
           existingUser.photo = req.user._json.picture.data.url
           return res.status(200 ).json(existingUser);
         } else {
