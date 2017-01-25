@@ -1,4 +1,6 @@
 const mongoose = require( 'mongoose' );
+const findOrCreate = require( 'mongoose-findorcreate' );
+
 
 const User = new mongoose.Schema( {
   fb_id: { type: Number, unique: true, required: true }
@@ -14,5 +16,6 @@ const User = new mongoose.Schema( {
   , tempZip: { type: String }
 })
 
+User.plugin( findOrCreate );
 
 module.exports = mongoose.model("User", User);

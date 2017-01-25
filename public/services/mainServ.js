@@ -12,17 +12,33 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
 
 
     //users
-    this.getUsers = function() {
-        return $http.get(`${ref.url}/api/user`).then(function(response) {
-            return response.data
-        });
+    this.setUser = function() {
+      return $http.get( `${ ref.url }/api/` ).then( response => {
+        return response.data;
+      });
     }
 
-    this.addUser = function() {
-        return $http.post(`${ref.url}/api/user`).then(function(user) {
-            return user.data;
+    this.getUserById = function( id ){
+      return $http.get(  `${ ref.url }/api/user/${ id }` ).then( response => {
+        return response.data;
+      })
+    }
+
+    this.getUsers = function() {
+        return $http.get(`${ ref.url }/api/user`).then(function(response) {
+            return response.data;
         });
     }
+    this.findOrAddUser = function(){
+      return $http.get( `${ ref.url }/auth/facebook/`).then( response => {
+        return response;
+      })
+    }
+    // this.addUser = function() {
+    //     return $http.post(`${ref.url}/api/user`).then(function(user) {
+    //         return user.data;
+    //     });
+    // }
 
     this.updatePrefs = function(Preferences, id) {
         return $http.put(`${ref.url}/api/user/${id}`, Preferences)
