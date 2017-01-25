@@ -1,21 +1,35 @@
-angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainServ, $rootScope){
+angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainServ ){
+      (function init(){
 
-    $scope.findMovies = function(){
-        mainServ.getUsers().then( function(response){
-          // const newUsers = [];
-          // for( var i = 0; i < response.data; i++){
-          //   if(response.data[i].hasOwnProperty(movie)){
-          //     newUsers.push(response.data[i]);
-          //   }
-          // }
-          $scope.newUsers = response;
-          console.log($scope.newUsers)
-        })
-    }
-    // $scope.findMovies()
+        (function findMatches(){
 
-    $scope.matchUser = function(){
-      mainServ.matchUser( user, $rootScope.user._id ).then()
+          mainServ.findMatches().then( matches => {
+            $scope.matches = matches;
+            console.log( matches )
+          })
 
-    }
+        }());
+
+      }());
+
+
+
+    // $scope.findMovies = function(){
+    //     mainServ.getUsers().then( function(response){
+    //       // const newUsers = [];
+    //       // for( var i = 0; i < response.data; i++){
+    //       //   if(response.data[i].hasOwnProperty(movie)){
+    //       //     newUsers.push(response.data[i]);
+    //       //   }
+    //       // }
+    //       $scope.newUsers = response;
+    //       console.log($scope.newUsers)
+    //     })
+    // }
+    // // $scope.findMovies()
+    //
+    // $scope.matchUser = function(){
+    //   mainServ.matchUser( user, $rootScope.user._id ).then()
+    //
+    // }
 });

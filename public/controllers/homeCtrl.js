@@ -1,21 +1,20 @@
 angular.module( 'movieMe' )
-  .controller( 'homeCtrl', function( $scope, $rootScope, mainServ ) {
+  .controller( 'homeCtrl', function( $scope, mainServ ) {
 
-   function getOrSetUser(){
-       if( $rootScope.user ){
-         mainServ.getUserById( $rootScope.user._id ).then( user => {
-           $rootScope.user = user;
-           console.log( $rootScope.user );
+   (function init(){
+       if( mainServ.user ){
+         mainServ.getUserById( mainServ.user._id ).then( user => {
+           mainServ.user = user;
+           console.log( mainServ.user );
          })
        }
        else {
         mainServ.setUser().then( user => {
-          $rootScope.user = user;
-          console.log( $rootScope.user );
+          mainServ.user = user;
+          console.log( mainServ.user );
         })
       }
-    }
-    getOrSetUser();
+    }());
 
 
     $scope.saveZip = function( zip ) {
@@ -24,12 +23,12 @@ angular.module( 'movieMe' )
       if( !isValidZip ){
         return alert( "Please Enter A Valid Zip");
       }
-       $rootScope.isLoading = true;
+       mainServ.isLoading = true;
         mainServ.getMoviesByZip( zip )
             .then(function( movies ) {
                 console.log( movies )
                 $scope.movies = movies;
-                $rootScope.isLoading = false;
+                mainServ.isLoading = false;
             })
     }
 

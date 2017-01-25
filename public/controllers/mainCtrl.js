@@ -1,4 +1,4 @@
-angular.module( 'movieMe' ).controller( "mainCtrl", function( mainServ, $scope, $rootScope ){
+angular.module( 'movieMe' ).controller( "mainCtrl", function( mainServ, $scope ){
 
   $scope.saveZip = function( zip ) {
     let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test( zip );
@@ -6,12 +6,11 @@ angular.module( 'movieMe' ).controller( "mainCtrl", function( mainServ, $scope, 
     if( !isValidZip ){
       return alert( "Please Enter A Valid Zip");
     }
-     $rootScope.isLoading = true;
+     mainServ.isLoading = true;
       mainServ.getMoviesByZip( zip )
           .then(function( movies ) {
-              console.log( movies )
               $scope.movies = movies;
-              $rootScope.isLoading = false;
+              mainServ.isLoading = false;
           })
   }
 

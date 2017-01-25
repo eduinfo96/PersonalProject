@@ -10,10 +10,11 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     const imageReq = "https://api.themoviedb.org/3/search/movie?api_key="
     const imageBaseUrl = "https://image.tmdb.org/t/p/original"
 
+    this.isLoading = false;
 
     //users
     this.setUser = function() {
-      return $http.get( `${ ref.url }/api/` ).then( response => {
+      return $http.get( `${ ref.url }/api/currentuser` ).then( response => {
         return response.data;
       });
     }
@@ -24,11 +25,21 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
       })
     }
 
+    this.findMatches = function() {
+        return $http.get( `${ ref.url }/api/user`).then( response => {
+             return response.data.filter( elem => {
+               console.log( this.tempZip )
+                return elem.tempZip && elem.tempZip.startsWith( this.tempZip.substr(0,2) );
+             } );
+        });
+    }
+
     this.getUsers = function() {
-        return $http.get(`${ ref.url }/api/user`).then(function(response) {
+        return $http.get( `${ ref.url }/api/user`).then( response => {
             return response.data;
         });
     }
+
     this.findOrAddUser = function(){
       return $http.get( `${ ref.url }/auth/facebook/`).then( response => {
         return response;
@@ -63,7 +74,7 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     // }
 
     this.getMoviesByZip = function( zipCode ) {
-        $rootScope.tempZip = zipCode
+        this.tempZip = zipCode;
         let day = new Date().getDate() < 10 ? `0${ new Date().getDate() }` : `${ new Date().getDate() }`;
         let month = new Date().getMonth() < 9 ? `0${ new Date().getMonth() + 1 }` : `${ new Date().getMonth() + 1 }`;
         let year = new Date().getFullYear();

@@ -9,8 +9,8 @@ module.exports = app => {
       , failureRedirect: "/"
     } ) );
   app.get( '/api/user/:id', userCtrl.getUserById );
-  // app.get( '/api/user', userCtrl.getUsers );
-  app.get( '/api/', userCtrl.setUser )
+  app.get( '/api/user', userCtrl.getUsers );
+  app.get( '/api/currentuser', userCtrl.setUser )
   app.get( '/api/matches', userCtrl.findMatch );
   app.put( '/api/deleteuser/:id', userCtrl.deleteUser );
   // app.post( '/api/user', userCtrl.addUser );
