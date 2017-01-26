@@ -362,14 +362,17 @@ th {
 
 body {
   width: 100%; }
-  body .modal
-  .zip-modal {
-    margin: auto;
-    text-align: center;
-    color: #2176AE;
-    background-color: #EDEDF4; }
-  body .modal-footer {
-    background-color: #EDEDF4; }
+  body .modal {
+    width: 41%; }
+    body .modal .zip-modal {
+      margin: auto;
+      text-align: center;
+      color: #2176AE;
+      background-color: #EDEDF4; }
+    body .modal .modal-footer {
+      background-color: #2176AE;
+      display: inline-flex;
+      justify-content: center; }
 
 .moved-header {
   background-color: rgba(255, 255, 255, 0);
@@ -614,7 +617,11 @@ body {
             font-size: 18px;
             margin-bottom: 13px;
             font-weight: bold;
-            font-family: "Fjalla One"; }
+            font-family: "Fjalla One";
+            padding: 0px 4px 0px 4px; }
+            .theaters-body .theater-sect .theater .poster .movie-data #theater-name a {
+              color: #FF584C;
+              margin-right: 4px; }
           .theaters-body .theater-sect .theater .poster .movie-data .movies {
             margin: 10px;
             font-family: "Capriola";
@@ -623,8 +630,6 @@ body {
             margin: 10px;
             padding-bottom: 5px;
             font-size: 14px; }
-            .theaters-body .theater-sect .theater .poster .movie-data .movies a {
-              color: #33312E; }
             .theaters-body .theater-sect .theater .poster .movie-data .movies .movie {
               flex-wrap: wrap;
               display: flex; }

@@ -10,7 +10,8 @@
 
 body {
     width: 100%;
-    .modal
+    .modal{
+      width: 41%;
      .zip-modal{
          margin: auto;
          text-align: center;
@@ -18,9 +19,12 @@ body {
          background-color:$whiteish;
        }
       .modal-footer{
-        background-color: $whiteish;
+        background-color: $blue;
+        display: inline-flex;
+        justify-content: center;
       }
      }
+   }
 
 .moved-header {
     background-color: rgba(255, 255, 255, .0);
@@ -415,6 +419,11 @@ body {
               margin-bottom: 13px;
               font-weight: bold;
               font-family: $theater-font;
+              padding: 0px 4px 0px 4px;
+              a{
+                color: $orange;
+                margin-right: 4px;
+              }
             }
       .movies {
         margin: 10px;
@@ -424,9 +433,6 @@ body {
         margin: 10px;
         padding-bottom: 5px;
         font-size: 14px;
-        a{
-          color: $black;
-        }
         .movie{
           flex-wrap: wrap;
           display: flex;

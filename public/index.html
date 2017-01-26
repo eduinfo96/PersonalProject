@@ -18,8 +18,16 @@
 
 <ui-view></ui-view>
 
-
 <div id="demoModal" class="modal">
+    <div class="modal-content zip-modal">
+        <h4>Search For Movies Near You?</h4>
+    </div>
+    <div class="modal-footer zip-footer">
+        <a href="/#/theaters" ng-click="getMovies()" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+        <a class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+    </div>
+</div>
+<!-- <div id="demoModal" class="modal">
     <div class="modal-content zip-modal">
         <h4>Enter Zip Code</h4>
         <input type="text" placeholder="Type Here" name="name" ng-model="zip"></input>
@@ -27,7 +35,7 @@
     <div class="modal-footer zip-footer">
         <a href="/#/theaters" ng-click="saveZip(zip)" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
     </div>
-</div>
+</div> -->
 
   <script src="/jq/jquery.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>

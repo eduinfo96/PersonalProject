@@ -13,7 +13,7 @@ const User = new mongoose.Schema( {
   //   type: mongoose.Schema.Type.ObjectId
   //   , ref: "Preferences"
   , movie: { type: Object }
-  , tempZip: { type: String }
+  , location: { type: Object }
 })
 
 User.plugin( findOrCreate );

@@ -14,6 +14,12 @@ angular.module( 'movieMe' )
           console.log( mainServ.user );
         })
       }
+
+        navigator.geolocation.getCurrentPosition(function success(position) {
+        mainServ.latitude  = position.coords.latitude;
+        mainServ.longitude = position.coords.longitude;
+       });
+       
     }());
 
 

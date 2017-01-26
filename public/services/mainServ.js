@@ -10,8 +10,6 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     const imageReq = "https://api.themoviedb.org/3/search/movie?api_key="
     const imageBaseUrl = "https://image.tmdb.org/t/p/original"
 
-    this.isLoading = false;
-
     //users
     this.setUser = function() {
       return $http.get( `${ ref.url }/api/currentuser` ).then( response => {
@@ -51,36 +49,37 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     //     });
     // }
 
-    this.updatePrefs = function(Preferences, id) {
+    this.updatePrefs = function( Preferences, id ) {
         return $http.put(`${ref.url}/api/user/${id}`, Preferences)
     }
-    this.updateMovieAndZip = function(data, id) {
+    this.saveMovieAndLocation = function( data, id ) {
         return $http.put(`${ref.url}/api/movie/${id}`, data )
     }
-    this.matchUser = function(user, id) {
+    this.matchUser = function( user, id ) {
         console.log(user);
         return $http.put(`${ref.url}/api/movie/${id}`, matchStat)
     }
 
     //movies
+    this.isLoading = false;
 
-    // this.getMovies = function() {
-    //   return $http.get( onConnBase2 + onConnKey  ).then( function( response ){
-    //     const movies = [];
-    //     for( var i = 0; i < response.data.length; i++){
-    //
-    //     }
-    //   })
-    // }
+    this.toggleLoading = function(){
+      if( this.Loading ){
+        this.Loading = false;
+        return this.Loading;
+      }
+      this.Loading = true;
+      return this.Loading;
+    }
 
-    this.getMoviesByZip = function( zipCode ) {
-        this.tempZip = zipCode;
+    this.getMovies = function() {
+        // this.tempZip = zipCode;
         let day = new Date().getDate() < 10 ? `0${ new Date().getDate() }` : `${ new Date().getDate() }`;
         let month = new Date().getMonth() < 9 ? `0${ new Date().getMonth() + 1 }` : `${ new Date().getMonth() + 1 }`;
         let year = new Date().getFullYear();
         let currentDate = `${ year }-${ month }-${ day }`;
 
-        return $http.get(`${ onConnBase }${ currentDate }&zip=${ zipCode }&radius=15&units=mi&imageSize=Lg&api_key=${ onConnKey }`)
+        return $http.get(`${ onConnBase }${ currentDate }&lat=${ this.latitude }&lng=${ this.longitude }&radius=15&units=mi&imageSize=Lg&api_key=${ onConnKey }`)
             .then( response => {
                 response.data = response.data.slice(0, 40);
                 response.data.forEach( movie => {
