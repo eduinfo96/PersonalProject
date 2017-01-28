@@ -50,10 +50,16 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     // }
 
     this.updatePrefs = function( Preferences, id ) {
-        return $http.put(`${ref.url}/api/user/${id}`, Preferences)
+        return $http.put( `${ref.url}/api/user/${id}`, Preferences ).then( response => {
+          this.user = response.data;
+
+          return response.data;
+        })
     }
     this.saveMovieAndLocation = function( data, id ) {
-        return $http.put(`${ref.url}/api/movie/${id}`, data )
+        return $http.put( `${ref.url}/api/movie/${id}`, data ).then( response => {
+          this.user = response.data;
+        })
     }
     this.matchUser = function( user, id ) {
         console.log(user);

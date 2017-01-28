@@ -3,7 +3,7 @@ angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainSer
 
         (function findMatches(){
 
-          mainServ.findMatches().then( matches => {
+          mainServ.buildPoster().then( matches => {
             $scope.matches = matches;
             console.log( matches )
           })
@@ -12,6 +12,14 @@ angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainSer
 
       }());
 
+
+      // $scope.findDate() = function(){
+      //   const searchObj = {
+      //     age:
+      //   }
+      //
+      //   mainServ.findDate().then( )
+      // }
 
 
     // $scope.findMovies = function(){

@@ -1,5 +1,5 @@
 angular.module( 'movieMe' )
-  .controller( 'settingsCtrl', function( $scope, mainServ, $rootScope ){
+  .controller( 'settingsCtrl', function( $scope, mainServ ){
     $scope.select = {}
 
 
@@ -7,13 +7,11 @@ angular.module( 'movieMe' )
       const Preferences = {
           age_range: $scope.select.age_range
           , gender: $scope.select.gender
-          , time_range: $scope.select.time_range
       }
 
-      mainServ.updatePrefs( Preferences, $rootScope.user._id ).then(function( updatedUser ){
+      mainServ.updatePrefs( Preferences, mainServ.user._id ).then( updatedUser => {
         console.log(updatedUser)
       })
     }
-
 
   } )

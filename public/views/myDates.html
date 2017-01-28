@@ -1,6 +1,8 @@
 <main class="my-dates-body">
     <nav-dir></nav-dir>
 
+    <a class="waves-effect waves-light btn" ng-click="findDate()">Date Finder</a>
+
         <section class="user-list" ng-repeat="user in newUsers">
             <div class="user" ng-show="user.movie"> {{ user.first_name }}   <a href="" ng-click="matchUser(user)">   <i class="fa fa-user-plus add-user" aria-hidden="true"></i></a>
              </br> {{user.movie.title}}

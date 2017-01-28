@@ -19,7 +19,7 @@ angular.module( 'movieMe' )
         mainServ.latitude  = position.coords.latitude;
         mainServ.longitude = position.coords.longitude;
        });
-       
+
     }());
 
 
