@@ -1,25 +1,30 @@
 angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainServ ){
-      (function init(){
-
-        (function findMatches(){
-
-          mainServ.buildPoster().then( matches => {
-            $scope.matches = matches;
-            console.log( matches )
-          })
-
-        }());
-
-      }());
-
-
-      // $scope.findDate() = function(){
-      //   const searchObj = {
-      //     age:
-      //   }
+      // (function init(){
       //
-      //   mainServ.findDate().then( )
-      // }
+      //   // (function findMatches(){
+      //   //
+      //   //   mainServ.buildPoster().then( matches => {
+      //   //     $scope.matches = matches;
+      //   //     console.log( matches )
+      //   //   })
+      //   //
+      //   // }());
+      //
+      // }());
+      //
+      //
+      $scope.findDate = function(){
+        mainServ.getUsers().then( users => {
+          let possibles = users.filter( elem => {
+            const myAgePref = mainServ.user.preferences.age_range.match( /\d+/g );
+            const dateAgePref = elem.preferences.age_range.match( /\d+/g );
+            return elem.movie.title == mainServ.user.movie.title && elem.gender.toLowerCase() === mainServ.user.preferences.gender.toLowerCase() && elem.age <= myAgePref[1] && elem.age >= myAgePref[0] && mainServ.user.age <= dateAgePref[1] && mainServ.user.age >= dateAgePref[0] && mainServ.user.gender.toLowerCase() === elem.preferences.gender.toLowerCase();
+          } )
+
+          
+
+        } )
+      }
 
 
     // $scope.findMovies = function(){

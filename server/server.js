@@ -21,6 +21,7 @@ app.use( express.static( `${ __dirname }/../public`) );
 
 passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done) => {
   process.nextTick( function(){
+    console.log( profile );
      const newUser = {
            fb_id: profile.id
            , age_range: profile._json.age_range

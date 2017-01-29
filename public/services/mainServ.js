@@ -23,23 +23,28 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
       })
     }
 
-    this.findMatches = function() {
-        return $http.get( `${ ref.url }/api/user`).then( response => {
-             return response.data.filter( elem => {
-               console.log( this.tempZip )
-                return elem.tempZip && elem.tempZip.startsWith( this.tempZip.substr(0,2) );
-             } );
-        });
+    // this.findMatches = function() {
+    //     return $http.get( `${ ref.url }/api/user` ).then( response => {
+    //          return response.data.filter( elem => {
+    //            console.log( this.tempZip )
+    //             return elem.tempZip && elem.tempZip.startsWith( this.tempZip.substr(0,2) );
+    //          } );
+    //     });
+    // }
+
+    this.findDate = function( user ){
+      return $http.get( `${ ref.url }/api/user/dates` ).then
     }
 
+
     this.getUsers = function() {
-        return $http.get( `${ ref.url }/api/user`).then( response => {
+        return $http.get( `${ ref.url }/api/user` ).then( response => {
             return response.data;
         });
     }
 
     this.findOrAddUser = function(){
-      return $http.get( `${ ref.url }/auth/facebook/`).then( response => {
+      return $http.get( `${ ref.url }/auth/facebook/` ).then( response => {
         return response;
       })
     }
@@ -63,11 +68,10 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     }
     this.matchUser = function( user, id ) {
         console.log(user);
-        return $http.put(`${ref.url}/api/movie/${id}`, matchStat)
+        return $http.put( `${ref.url}/api/movie/${id}`, matchStat)
     }
 
     //movies
-    this.isLoading = false;
 
     this.toggleLoading = function(){
       if( this.Loading ){

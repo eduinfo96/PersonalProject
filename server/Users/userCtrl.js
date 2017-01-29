@@ -38,7 +38,7 @@ module.exports = {
     if( !req.params.id ){
       return res.status( 400 ).send( "Invalid User" )
     };
-    User.findByIdAndUpdate( req.params.id, { $set:  { preferences: req.body } }, { new: true, upsert: true }, ( err, response ) => {
+    User.findByIdAndUpdate( req.params.id, { $set:  { preferences: req.body.preferences, age: req.body.age } }, { new: true, upsert: true }, ( err, response ) => {
       if( err ){
         return res.send( err )
       }

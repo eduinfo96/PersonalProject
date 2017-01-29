@@ -6,7 +6,7 @@ const User = new mongoose.Schema( {
   fb_id: { type: Number, unique: true, required: true }
   , first_name: { type: String, required: true }
   , gender: { type: String, required: true }
-  , age_range: { type: Object, required: true }
+  , age: { type: String }
   , isPaired: { type: Boolean, default: false }
   , photo: { type: String }
   , preferences: { type: Object }

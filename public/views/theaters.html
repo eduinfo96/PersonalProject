@@ -39,7 +39,7 @@
              <!-- <a href="" ng-click="updateMovieAndZip(movie.title, theater.theatre.name)"><i class="fa fa-film reel" aria-hidden="true"></i></a>    -->
              {{theater.theatre.name}}
               <div class="movie">
-                <div class="showtimes" ng-repeat="showtime in theater.dateTime">
+                <div class="showtimes" ng-repeat="showtime in theater.dateTime track by $index">
                   {{showtime | date: 'shortTime'}}
                 </div>
               </div>

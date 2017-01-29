@@ -4,13 +4,17 @@ angular.module( 'movieMe' )
 
 
     $scope.updatePrefs = () => {
-      const Preferences = {
-          age_range: $scope.select.age_range
-          , gender: $scope.select.gender
+      const data = {
+        age: $scope.select.age
+        , preferences:{
+            age_range: $scope.select.age_range
+            , gender: $scope.select.gender
+          }
       }
 
-      mainServ.updatePrefs( Preferences, mainServ.user._id ).then( updatedUser => {
-        console.log(updatedUser)
+      mainServ.updatePrefs( data, mainServ.user._id ).then( updatedUser => {
+        mainServ.user = updatedUser;
+        console.log( mainServ.user );
       })
     }
 
