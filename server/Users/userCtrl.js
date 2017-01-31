@@ -34,6 +34,18 @@ module.exports = {
       }
     })
   }
+
+  , findMatches: function( req, res ){
+    User.find( {}, function( err, users ){
+      if( err ){
+        return res.status( 400 ).json( err )
+      }
+      else {
+        return res.status( 200 ).json( users )
+      }
+    })
+  }
+
   , updatePrefs: function( req, res ){
     if( !req.params.id ){
       return res.status( 400 ).send( "Invalid User" )

@@ -11,7 +11,7 @@ module.exports = app => {
   app.get( '/api/user/:id', userCtrl.getUserById );
   app.get( '/api/user', userCtrl.getUsers );
   app.get( '/api/currentuser', userCtrl.setUser )
-  app.get( '/api/matches', userCtrl.findMatch );
+  app.get( '/api/matches', userCtrl.findMatches );
   app.put( '/api/deleteuser/:id', userCtrl.deleteUser );
   // app.post( '/api/user', userCtrl.addUser );
   app.put( '/api/user/:id', userCtrl.updatePrefs );

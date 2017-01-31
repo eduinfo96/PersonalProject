@@ -32,11 +32,6 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     //     });
     // }
 
-    this.findDate = function( user ){
-      return $http.get( `${ ref.url }/api/user/dates` ).then
-    }
-
-
     this.getUsers = function() {
         return $http.get( `${ ref.url }/api/user` ).then( response => {
             return response.data;
@@ -66,10 +61,48 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
           this.user = response.data;
         })
     }
-    this.matchUser = function( user, id ) {
-        console.log(user);
-        return $http.put( `${ref.url}/api/movie/${id}`, matchStat)
-    }
+
+
+    //matches
+    this.findMatches = function(){
+      return $http.get( `${ ref.url }/api/matches/` ).then( response => {
+
+        if ( typeof ( Number.prototype.toRad ) === "undefined" ) {
+            Number.prototype.toRad = function() {
+              return this * Math.PI / 180;
+            }
+        }
+
+        let matches = response.data.filter( elem => {
+
+              let myAgePref = this.user.preferences.age_range.match( /\d+/g );
+              let dateAgePref = elem.preferences.age_range.match( /\d+/g );
+
+              //Calculating distance between user & "dates"
+              let myLon = this.user.location.longitude;
+              let myLat = this.user.location.latitude;
+              let matchLon = elem.location.longitude;
+              let matchLat = elem.location.latitude;
+              let R = 6371;
+              let dLat = ( matchLat - myLat ).toRad();
+              let dLon = ( matchLon - myLon ).toRad();
+              myLat = myLat.toRad();
+              matchLat = matchLat.toRad();
+
+              let a = Math.sin( dLat / 2 ) * Math.sin( dLat / 2 ) +
+                      Math.sin( dLon / 2) * Math.sin( dLon / 2) * Math.cos( myLat ) * Math.cos( matchLat );
+
+              let c = 2 * Math.atan2( Math.sqrt( a ), Math.sqrt( 1 - a ) );
+
+              let distBetween = Math.floor( ( R * c ) / 1.609344 ); //In miles
+
+          return elem.fb_id !== this.user.fb_id && elem.movie.title == this.user.movie.title && elem.gender.toLowerCase() === this.user.preferences.gender.toLowerCase() && elem.age <= myAgePref[1] && elem.age >= myAgePref[0] && this.user.age <= dateAgePref[1] && this.user.age >= dateAgePref[0] && this.user.gender.toLowerCase() === elem.preferences.gender.toLowerCase() && distBetween <= 50;
+        } )
+        console.log( matches )
+       })
+      }
+
+
 
     //movies
 
