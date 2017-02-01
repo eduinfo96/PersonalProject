@@ -5,7 +5,7 @@ const findOrCreate = require( 'mongoose-findorcreate' );
 module.exports = {
 
   setUser: function( req, res ){
-    User.findOne( { fb_id: req.session.passport.user }, ( err, user ) => {
+    User.findOne( { fb_id: req.user.id }, ( err, user ) => {
       if ( err ){
         return res.status( 400 ).send( "Invalid User")
       }
@@ -36,7 +36,7 @@ module.exports = {
   }
 
   , findMatches: function( req, res ){
-    User.find( {}, function( err, users ){
+    User.find( { isPaired: false, movie: { $exists: true }, preferences: { $exists: true }, location: { $exists: true } }, function( err, users ){
       if( err ){
         return res.status( 400 ).json( err )
       }

@@ -11,18 +11,16 @@ const fbConfig = require( './fbConfig.js' )
 const mongoUri = "mongodb://localhost:27017/MovieMeet"
 const User = require( './Users/User.js' ) ;
 
-
+app.use( express.static( `${ __dirname }/../public`) );
 app.use( json() );
 app.use( cors() );
 app.use( session( { secret: 'pickles' } ) );
 app.use( passport.initialize() );
 app.use( passport.session() );
-app.use( express.static( `${ __dirname }/../public`) );
 
 passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done) => {
   process.nextTick( function(){
-    console.log( profile );
-     const newUser = {
+   const newUser = {
            fb_id: profile.id
            , age_range: profile._json.age_range
            , first_name: profile.name.givenName
@@ -40,7 +38,7 @@ passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done
 }))
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user);
 });
 
 passport.deserializeUser((obj, done) => {

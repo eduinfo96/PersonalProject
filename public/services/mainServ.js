@@ -73,7 +73,7 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
             }
         }
 
-        let matches = response.data.filter( elem => {
+        let multiMatches = response.data.filter( elem => {
 
               let myAgePref = this.user.preferences.age_range.match( /\d+/g );
               let dateAgePref = elem.preferences.age_range.match( /\d+/g );
@@ -90,15 +90,19 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
               matchLat = matchLat.toRad();
 
               let a = Math.sin( dLat / 2 ) * Math.sin( dLat / 2 ) +
-                      Math.sin( dLon / 2) * Math.sin( dLon / 2) * Math.cos( myLat ) * Math.cos( matchLat );
+                      Math.sin( dLon / 2 ) * Math.sin( dLon / 2 ) * Math.cos( myLat ) * Math.cos( matchLat );
 
               let c = 2 * Math.atan2( Math.sqrt( a ), Math.sqrt( 1 - a ) );
 
               let distBetween = Math.floor( ( R * c ) / 1.609344 ); //In miles
 
-          return elem.fb_id !== this.user.fb_id && elem.movie.title == this.user.movie.title && elem.gender.toLowerCase() === this.user.preferences.gender.toLowerCase() && elem.age <= myAgePref[1] && elem.age >= myAgePref[0] && this.user.age <= dateAgePref[1] && this.user.age >= dateAgePref[0] && this.user.gender.toLowerCase() === elem.preferences.gender.toLowerCase() && distBetween <= 50;
+          return elem.fb_id !== this.user.fb_id && elem.movie.title === this.user.movie.title && elem.gender.toLowerCase() === this.user.preferences.gender.toLowerCase() && elem.age <= myAgePref[1] && elem.age >= myAgePref[0] && this.user.age <= dateAgePref[1] && this.user.age >= dateAgePref[0] && this.user.gender.toLowerCase() === elem.preferences.gender.toLowerCase() && distBetween <= 50;
         } )
-        console.log( matches )
+
+        let match = multiMatches.pop();
+
+        return match;
+
        })
       }
 
