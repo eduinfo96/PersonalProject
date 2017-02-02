@@ -5,7 +5,9 @@ const findOrCreate = require( 'mongoose-findorcreate' );
 module.exports = {
 
   setUser: function( req, res ){
-    User.findOne( { fb_id: req.user.id }, ( err, user ) => {
+    console.log( "Set User: ", req.user )
+    console.log( "Set Session: ", req.session )
+    User.findOne( { fb_id: req.user.fb_id }, ( err, user ) => {
       if ( err ){
         return res.status( 400 ).send( "Invalid User")
       }
@@ -14,9 +16,10 @@ module.exports = {
   }
 
   , getUserById: function( req, res ){
+    console.log( req.session )
     User.findById( req.params.id, function( err, existingUser) {
       if( err ){
-        return res.status( 400 ).json( err )
+       return res.status( 400 ).json( err )
       }
       else {
         return res.status( 200 ).json( existingUser )
@@ -96,6 +99,21 @@ module.exports = {
           return res.json( response );
         }
       })
+    }
+
+    //Authenticating & Logging Out
+
+    , isAuthenticated: function( req, res, next ){
+      if( req.isAuthenticated() ){
+          return next();
+      }
+      res.status( 401 );
+    }
+
+    , logMeOut: function( req, res ){
+      req.logout();
+      req.session.destroy();
+      res.redirect( "/" );
     }
 
 

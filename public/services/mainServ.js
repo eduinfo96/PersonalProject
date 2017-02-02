@@ -49,6 +49,10 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     //     });
     // }
 
+    this.logMeOut = function(){
+      return $http.get( `${ ref.url }/logout` )
+    }
+
     this.updatePrefs = function( Preferences, id ) {
         return $http.put( `${ref.url}/api/user/${id}`, Preferences ).then( response => {
           this.user = response.data;
@@ -99,7 +103,7 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
           return elem.fb_id !== this.user.fb_id && elem.movie.title === this.user.movie.title && elem.gender.toLowerCase() === this.user.preferences.gender.toLowerCase() && elem.age <= myAgePref[1] && elem.age >= myAgePref[0] && this.user.age <= dateAgePref[1] && this.user.age >= dateAgePref[0] && this.user.gender.toLowerCase() === elem.preferences.gender.toLowerCase() && distBetween <= 50;
         } )
 
-        let match = multiMatches.pop();
+        let match = multiMatches.shift();
 
         return match;
 

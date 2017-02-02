@@ -11,11 +11,12 @@ module.exports = app => {
   app.get( '/api/user/:id', userCtrl.getUserById );
   app.get( '/api/user', userCtrl.getUsers );
   app.get( '/api/currentuser', userCtrl.setUser )
-  app.get( '/api/matches', userCtrl.findMatches );
+  app.get( '/api/matches', userCtrl.isAuthenticated, userCtrl.findMatches );
+  app.get( '/logout', userCtrl.isAuthenticated, userCtrl.logMeOut )
   app.put( '/api/deleteuser/:id', userCtrl.deleteUser );
   // app.post( '/api/user', userCtrl.addUser );
   app.put( '/api/user/:id', userCtrl.updatePrefs );
-  app.put( '/api/movie/:id', userCtrl.saveMovieAndLocation );
+  app.put( '/api/movie/:id', userCtrl.isAuthenticated, userCtrl.saveMovieAndLocation );
 
 
 

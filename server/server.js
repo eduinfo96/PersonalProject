@@ -8,13 +8,14 @@ const port = 4001;
 const passport = require( 'passport' );
 const FacebookStrategy = require( 'passport-facebook' ).Strategy;
 const fbConfig = require( './fbConfig.js' )
+const sessConfig = require( './sessConfig.js' );
 const mongoUri = "mongodb://localhost:27017/MovieMeet"
 const User = require( './Users/User.js' ) ;
 
 app.use( express.static( `${ __dirname }/../public`) );
 app.use( json() );
 app.use( cors() );
-app.use( session( { secret: 'pickles' } ) );
+app.use( session( sessConfig ) );
 app.use( passport.initialize() );
 app.use( passport.session() );
 
@@ -22,7 +23,6 @@ passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done
   process.nextTick( function(){
    const newUser = {
            fb_id: profile.id
-           , age_range: profile._json.age_range
            , first_name: profile.name.givenName
            , gender: profile.gender
            , photo: profile._json.picture.data.url
@@ -38,11 +38,15 @@ passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done
 }))
 
 passport.serializeUser((user, done) => {
-  done(null, user);
+  console.log( "Serialized: ", user )
+  done(null, user.id);
 });
 
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
+passport.deserializeUser(( id, done ) => {
+  User.findOne( { fb_id: id }, ( err, user ) => {
+    console.log( "Deserialized: ", user )
+    done( err, user )
+  });
 });
 
 require( "./masterRoutes" )(app);

@@ -14,6 +14,7 @@ angular.module( "movieMe" ).controller( "matchesCtrl", function( $scope, mainSer
       //
       //
       $scope.findMatch = function(){
+        console.log( mainServ.user )
         mainServ.findMatches().then( match => {
             if( match ){
               alert( "You've Been Matched!!!")
