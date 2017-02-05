@@ -6,7 +6,7 @@ module.exports = {
 
   setUser: function( req, res ){
     console.log( "Set User: ", req.user )
-    console.log( "Set Session: ", req.session )
+    console.log( "Set Cookie: ", req.session.cookie )
     User.findOne( { fb_id: req.user.fb_id }, ( err, user ) => {
       if ( err ){
         return res.status( 400 ).send( "Invalid User")
@@ -16,7 +16,6 @@ module.exports = {
   }
 
   , getUserById: function( req, res ){
-    console.log( req.session )
     User.findById( req.params.id, function( err, existingUser) {
       if( err ){
        return res.status( 400 ).json( err )
@@ -50,10 +49,10 @@ module.exports = {
   }
 
   , updatePrefs: function( req, res ){
-    if( !req.params.id ){
+    if( !req.user ){
       return res.status( 400 ).send( "Invalid User" )
     };
-    User.findByIdAndUpdate( req.params.id, { $set:  { preferences: req.body.preferences, age: req.body.age } }, { new: true, upsert: true }, ( err, response ) => {
+    User.findByIdAndUpdate( req.user._id, { $set:  { preferences: req.body.preferences, age: req.body.age } }, { new: true, upsert: true }, ( err, response ) => {
       if( err ){
         return res.send( err )
       }
@@ -64,10 +63,10 @@ module.exports = {
     }
 
     , saveMovieAndLocation: function( req, res ){
-      if( !req.params.id ){
+      if( !req.user ){
         return res.status( 400 ).send( "Invalid User" )
       };
-      User.findByIdAndUpdate( req.params.id, { $set:  { location: req.body.location, movie: req.body.movie  } }, { new: true, upsert: true }, ( err, response ) => {
+      User.findByIdAndUpdate( req.user._id, { $set:  { location: req.body.location, movie: req.body.movie  } }, { new: true, upsert: true }, ( err, response ) => {
         if( err ){
           return res.send( err )
         }
@@ -107,12 +106,11 @@ module.exports = {
       if( req.isAuthenticated() ){
           return next();
       }
-      res.status( 401 );
+      return res.status( 401 );
     }
 
     , logMeOut: function( req, res ){
       req.logout();
-      req.session.destroy();
       res.redirect( "/" );
     }
 

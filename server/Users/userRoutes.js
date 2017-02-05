@@ -15,8 +15,8 @@ module.exports = app => {
   app.get( '/logout', userCtrl.isAuthenticated, userCtrl.logMeOut )
   app.put( '/api/deleteuser/:id', userCtrl.deleteUser );
   // app.post( '/api/user', userCtrl.addUser );
-  app.put( '/api/user/:id', userCtrl.updatePrefs );
-  app.put( '/api/movie/:id', userCtrl.isAuthenticated, userCtrl.saveMovieAndLocation );
+  app.put( '/api/user/', userCtrl.updatePrefs );
+  app.put( '/api/movie/', userCtrl.isAuthenticated, userCtrl.saveMovieAndLocation );
 
 
 

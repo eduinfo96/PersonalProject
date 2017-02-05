@@ -54,15 +54,15 @@ angular.module("movieMe").service("mainServ", function($http, $rootScope, ref) {
     }
 
     this.updatePrefs = function( Preferences, id ) {
-        return $http.put( `${ref.url}/api/user/${id}`, Preferences ).then( response => {
-          this.user = response.data;
-
+        return $http.put( `${ref.url}/api/user/`, Preferences ).then( response => {
+          
           return response.data;
         })
     }
-    this.saveMovieAndLocation = function( data, id ) {
-        return $http.put( `${ref.url}/api/movie/${id}`, data ).then( response => {
+    this.saveMovieAndLocation = function( data ) {
+        return $http.put( `${ref.url}/api/movie/`, data ).then( response => {
           this.user = response.data;
+          console.log( this.user )
         })
     }
 

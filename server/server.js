@@ -38,13 +38,13 @@ passport.use( new FacebookStrategy(fbConfig, (token, refreshToken, profile, done
 }))
 
 passport.serializeUser((user, done) => {
-  console.log( "Serialized: ", user )
+  console.log( "Serialized: ", user.id )
   done(null, user.id);
 });
 
 passport.deserializeUser(( id, done ) => {
   User.findOne( { fb_id: id }, ( err, user ) => {
-    console.log( "Deserialized: ", user )
+    console.log( "Deserialized: ", user.id )
     done( err, user )
   });
 });

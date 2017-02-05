@@ -35,7 +35,7 @@ angular.module('movieMe').controller("theatersCtrl", function( mainServ, $scope 
             }
         }
 
-        mainServ.saveMovieAndLocation( data, mainServ.user._id)
+        mainServ.saveMovieAndLocation( data )
     }
 
 

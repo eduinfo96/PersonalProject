@@ -12,9 +12,9 @@ angular.module( 'movieMe' )
           }
       }
 
-      mainServ.updatePrefs( data, mainServ.user._id ).then( updatedUser => {
+      mainServ.updatePrefs( data ).then( updatedUser => {
+        console.log( updatedUser )
         mainServ.user = updatedUser;
-        console.log( mainServ.user );
       })
     }
 
